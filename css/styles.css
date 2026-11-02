@@ -86,13 +86,21 @@ textarea {
 
 .site-header {
   z-index: 1000;
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--page) 88%, transparent);
-  backdrop-filter: blur(18px);
+  padding-top: 0.8rem;
+  background: transparent;
+}
+
+.site-header .navbar > .container {
+  border: 1px solid color-mix(in srgb, var(--line) 75%, white);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 68%, transparent);
+  box-shadow: 0 10px 35px rgb(23 31 66 / 9%), inset 0 1px rgb(255 255 255 / 55%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
 }
 
 .navbar {
-  min-height: 82px;
+  min-height: 72px;
 }
 
 .brand-lockup {
@@ -142,6 +150,8 @@ textarea {
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus-visible {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-soft) 72%, transparent);
   color: var(--brand);
 }
 
@@ -194,16 +204,29 @@ textarea {
   width: 42px;
   height: 42px;
   place-items: center;
-  border: 1px solid var(--line);
+  border: 1px solid color-mix(in srgb, var(--line) 75%, white);
   border-radius: 50%;
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 68%, transparent);
   color: var(--ink);
   cursor: pointer;
-  font-size: 1.35rem;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
 }
 
 .navbar-toggler {
-  border-color: var(--line);
+  border-color: color-mix(in srgb, var(--line) 75%, white);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface) 68%, transparent);
   color: var(--ink);
 }
 
@@ -985,13 +1008,24 @@ h2 {
   right: max(1.1rem, env(safe-area-inset-right));
   bottom: max(1.1rem, env(safe-area-inset-bottom));
   z-index: 900;
-  padding: 0.75rem 1.1rem;
-  border-radius: 999px;
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: 50%;
   background: #20b86a;
   box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
   color: #fff;
-  font-size: 0.88rem;
-  font-weight: 800;
+}
+
+.whatsapp-link svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
 }
 
 .whatsapp-link:hover {
@@ -1005,6 +1039,10 @@ h2 {
 }
 
 @media (max-width: 991.98px) {
+  .site-header .navbar > .container {
+    border-radius: 1.5rem;
+  }
+
   .navbar-collapse {
     padding: 0.8rem 0 1rem;
   }
@@ -1075,8 +1113,6 @@ h2 {
   .whatsapp-link {
     right: 0.7rem;
     bottom: 0.7rem;
-    padding: 0.65rem 0.9rem;
-    font-size: 0.8rem;
   }
 }
 

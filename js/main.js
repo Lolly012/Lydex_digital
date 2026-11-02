@@ -9,7 +9,8 @@ function applyTheme(theme) {
   root.dataset.theme = isDark ? "dark" : "light";
   root.setAttribute("data-bs-theme", isDark ? "dark" : "light");
   themeToggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} theme`);
-  themeToggle.querySelector("span").textContent = isDark ? "☀" : "☾";
+  themeToggle.querySelector('[data-theme-icon="moon"]').hidden = isDark;
+  themeToggle.querySelector('[data-theme-icon="sun"]').hidden = !isDark;
 }
 
 let savedTheme;
